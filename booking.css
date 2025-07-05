@@ -1,0 +1,107 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.logo {
+    text-align: center;
+    margin-left:1%;
+}
+.name {
+    font-family: cursive;
+    font-weight: bold;
+    text-indent: 5%;
+    color: #f4e3ce;
+    margin-right:73%;
+}
+
+header {
+    background-color:#9673ce;
+    color: #f4e3ce;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: large;
+}
+
+header h1 {
+    margin: 0;
+}
+
+.head {
+    text-align: center;
+    color: purple;
+}
+
+main {
+    margin: 20px;
+    text-align: center;
+}
+
+form {
+    max-width: 600px;
+    margin: auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    text-align: left;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.payment-options {
+    display: flex;
+    justify-content: space-between;
+}
+
+.payment-option {
+    flex: 1;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+}
+
+button {
+    background-color: #9673ce;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #9673ce;
+}
+
+#paymentDetails {
+    display: none;
+    margin-top: 20px;
+}
+
+#paymentDetails p {
+    margin: 10px 0;
+}
+
+footer {
+    background-color: #9673ce;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}

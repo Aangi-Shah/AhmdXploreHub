@@ -1,0 +1,77 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('registration.jpeg') center/cover no-repeat fixed;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 102vh;
+    width: 186.7vh;
+    margin:auto;
+    }
+
+form {
+    width: 768px;
+    height: 347px;
+    padding: 20px;
+    background: rgba(255, 255, 255); /* 50% opacity white background */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.reg {
+    display: flex;
+    justify-content: space-between;
+}
+
+.forgot-password {
+    text-align: right;
+    margin-bottom: 30px;
+}
+
+.register {
+    text-align: right;
+    margin-bottom:30px;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+button {   
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #555;
+}

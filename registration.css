@@ -1,0 +1,87 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('registration.jpeg') center/cover no-repeat fixed;
+}
+
+.registration-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    height: 62.5vh;
+    width: 188.3vh;
+    margin-left: auto;
+    margin-right:auto;
+    margin-top:30px;
+}
+h1 {
+    font-size: xx-large;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.radio-group {
+    font-size: x-large;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    padding-left: 350px;
+    padding-right: 300px;
+    margin-top:50px;
+}
+
+form {
+    width: 768px;
+    height: 375px;
+    padding: 20px;
+    background: rgba(255, 255, 255); /* 50% opacity white background */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+.registration-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 74vh;
+    width: 189vh;
+}
+}
+
+label {
+    display: flex;
+    align-items: center;
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+.input-group {
+    margin-bottom: 8px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #555;
+}

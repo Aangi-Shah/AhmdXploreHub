@@ -1,0 +1,147 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    box-sizing: border-box;
+}
+.image {
+      position: relative;
+      width: 100%;
+      /*max-width: 600px; /* Adjust the max-width as needed */
+      margin: 0 auto;
+      }
+
+    .full-image {
+      width: 50%;
+      display: block;
+    }
+
+    .side-images {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 49.5%; /* Adjust the width of side images as needed */
+    }
+
+    .side-images img {
+      width: 100%;
+      height: 50%; /* Adjust the height of side images as needed */
+      object-fit: cover;
+    }
+
+.event-detail-container {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.event-header {
+    background-color: #9673ce;
+    font-family:cursive;
+    font-size: 25px;
+    color: #f4e3ce;
+}
+
+.event-header img {
+    max-width: 32%;
+    height: 360px;
+    margin-bottom: -7px;
+    margin-left: 9px;
+    margin-right: 5px;
+}
+
+.event-description,
+.event-details,
+.event-reviews {
+    margin-bottom: 30px;
+    margin-left: 15px;
+    font-size: 18px;
+}
+
+h2 {
+    color: purple;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+.review {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.more-events {
+    margin-top: 20px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.event-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.event {
+    width: 320px;
+    margin: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.event img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.event button {
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.event button:hover{
+    background-color: #555;
+}
+
+.wishlist-booking {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 15px;
+    margin-right: 850px;
+}
+
+button {
+    padding: 10px;
+    border: solid;
+    cursor: pointer;
+    font-size: large;
+}
+
+.wishlist-btn {
+    background-color: #9673ce;
+    color: black;
+    font-weight: bold;
+}
+
+.booking-btn {
+    background-color: #9673ce;
+    color: black;
+    font-weight: bold;
+}
+
+button:hover {
+    opacity: 0.8;
+}

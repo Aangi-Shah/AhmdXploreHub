@@ -1,0 +1,246 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dummy User Table</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .delete-button {
+            background-color: #f44336;
+            color: #fff;
+            padding: 8px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>User ID</th>
+                <th>Name</th>
+                <th>User Type</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr>
+                <td>1</td>
+                <td>John Doe</td>
+                <td>Admin</td>
+                <td>john@example.com</td>
+                <td>123-456-7890</td>
+                <td><button class="delete-button" onclick="deleteUser(1)">Delete</button></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Jane Smith</td>
+                <td>User</td>
+                <td>jane@example.com</td>
+                <td>987-654-3210</td>
+                <td><button class="delete-button" onclick="deleteUser(2)">Delete</button></td>
+            </tr>
+            
+        </tbody>
+    </table>
+
+    <script>
+        function deleteUser(userId) {
+            // Dummy function, you can implement the actual delete logic here
+            console.log('Deleting user with ID:', userId);
+        }
+    </script>
+</body>
+
+</html>-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="admin_style.css">
+    <title> Home</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+        }
+
+        header {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 200px; /* Adjust the width as needed */
+            flex-shrink: 0; /* Prevents header from shrinking */
+        }
+
+        .logo img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .name h1 {
+            margin: 0;
+        }
+
+        .profile-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .profile-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 200px; /* Adjust the width as needed */
+            height: 100vh;
+            overflow-y: auto; /* Enables scrolling if content exceeds the height */
+            flex-shrink: 0; /* Prevents nav from shrinking */
+        }
+
+        nav h3 {
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 10px 0;
+            transition: color 0.3s ease; /* Smooth color transition */
+        }
+
+        nav a:hover {
+            color: #ffcc00;
+        }
+
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Ahmedabad City">
+        </div>
+        <div class="name">
+            <h1>AhmdXploreHub</h1>
+        </div>
+        <div class="profile-circle">
+            <img src="adalaj.jpg" alt="Profile Image">
+        </div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <h3>Dashboard</h3>
+        <a href="#" onclick="showTable('users')">Users</a>
+        <a href="#" onclick="showTable('categories')">Categories</a>
+        <a href="#" onclick="showTable('services')">Services</a>
+        <a href="#" onclick="showTable('bookings')">Bookings</a>
+        <a href="#" onclick="showTable('payments')">Payments</a>
+        <a href="#" onclick="showTable('feedbacks')">Feedbacks</a>
+        <a href="#" onclick="showTable('reports')">Reports</a>
+    </nav>
+
+    <!-- Content Area -->
+    <div class="content">
+        <div id="usersTable" style="display:none;">
+            <h2>User List</h2>
+            <table>
+                <!-- Your user table content goes here -->
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <!-- Add more columns as needed -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dummy User Data -->
+                    <tr>
+                        <td>1</td>
+                        <td>John Doe</td>
+                        <td>john@example.com</td>
+                        <!-- Add more rows as needed -->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- Repeat the content area for other tables (categories, services, etc.) -->
+    </div>
+
+    <script>
+        function showTable(tableName) {
+            // Hide all tables
+            document.getElementById('usersTable').style.display = 'none';
+            // Hide other tables if needed
+
+            // Show the selected table
+            document.getElementById(tableName + 'Table').style.display = 'block';
+        }
+    </script>
+</body>
+
+</html>

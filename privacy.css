@@ -1,0 +1,95 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.logo {
+    text-align: center;
+}
+.name {
+    font-family: cursive;
+    font-weight: bold;
+    text-indent: -40%;
+    color: #f4e3ce;
+}
+header {
+    background-color:#9673ce;
+    color: #f4e3ce;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: large;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #f4e3ce;
+}
+
+.categories-dropdown, .user-auth{
+    position: relative;
+}
+
+.button {
+    border-radius: 20px;
+    background-color: #f4e3ce;
+    font-weight: bold;
+    color:purple;
+    padding-left:5px;
+    padding-right: 5px;
+}
+
+.dropdown-content, .auth-dropdown {
+    display: none;
+    position: absolute;
+    background-color: purple;
+    padding: 10px;
+    z-index: 1;
+    width: 130px;
+}
+
+.categories-dropdown:hover .dropdown-content, .user-auth:hover .auth-dropdown {
+    display: block;
+}
+
+.hotels-dropdown:hover .dropdown-content, .user-auth:hover .auth-dropdown {
+    display: block;
+}
+
+main {
+    margin: 20px;
+}
+
+h2 {
+    color: purple;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    background-color: #9673ce;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}

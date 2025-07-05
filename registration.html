@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="registration.css">
+    <title>Registration</title>
+</head>
+
+<body>
+            <div class="radio-group">
+                <label>
+                    <input type="radio" name="user-type" value="tourist">
+                    Tourist
+                </label>
+                <label>
+                    <input type="radio" name="user-type" value="service-provider">
+                    Service Provider
+                </label>
+            </div>
+	<div class="registration-container">
+        <form id="registrationForm">
+	
+                <div class="input-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" password="[A-Za-z\s]{2,}$" required> 
+            </div>
+
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="input-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[!@#$%^&*]).{8,}$" title="Password must contain at least 8 characters, including one uppercase letter, one lowercase letter, one number, and one special character" required>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Confirm Password</label>
+                <input type="Password" id="confirmPassword" name="confirmPassword" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[!@#$%^&*]).{8,}$" title="Password must contain at least 8 characters, including one uppercase letter, one lowercase letter, one number, and one special character" required>
+            </div>
+
+            <button type="submit" onclick="validateForm()">Submit</button>
+
+            <script>
+                function validateForm() {
+                    var radioButtons = document.getElementsByName('user-type');
+                    var name = document.getElementById('name').value;
+                    var email = document.getElementById('email').value;
+                    var phone = document.getElementById('phone').value;
+                    var password = document.getElementById('password').value;
+                    var confirmPassword = document.getElementById('confirmPassword').value;
+            
+                    var isChecked = false;
+                    for (var i = 0; i < radioButtons.length; i++) {
+                        if (radioButtons[i].checked) {
+                            isChecked = true;
+                            break;
+                        }
+                    }
+                    if (!isChecked) {
+                        alert("Please select at least one user type.");
+                    } 
+
+                    if (name === "" || email === "" || phone === "" || password === "" || confirmPassword === "") {
+                        alert("Please fill all the fields.");
+                        return;
+                    }
+
+                    var namePattern = /^[A-Za-z\s]{2,}$/;
+                    if(!namePattern.test(name)){
+                        alert("Name must contain only letters, spaces and be at least 2 characters long.");
+                        return;
+                    }
+
+                    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailPattern.test(email)) {
+                        alert("Please enter a valid email address.");
+                        return;
+                    } 
+
+                    var phonePattern = /^[0-9]{10}$/;
+                    if (!phonePattern.test(phone)) {
+                        alert("Please enter a valid 10-digit phone number.");
+                        return;
+                    }
+
+                    var passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[!@#$%^&*]).{8,}$/;
+                    if (!passwordPattern.test(password)) {
+                        alert("Password must contain at least one digit, one lowercase letter, one special character, and be at least 8 characters long.");
+                        return;
+                    }
+
+                    if (password !== confirmPassword) {
+                        alert("Passwords do not match!");
+                        return;
+                  }
+                  alert("Registration successful")
+                }
+              </script>
+
+            
+        </form>
+    </div>
+
+</body>
+
+</html>

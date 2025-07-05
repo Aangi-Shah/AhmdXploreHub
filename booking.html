@@ -1,0 +1,86 @@
+<?php
+    // Include the database connection file and any session handling code
+    include("db1.php");
+
+    // Check if the form is submitted
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Retrieve form data
+        $fullName = $_POST["fullName"];
+        $bookingDate = $_POST["bookingDate"];
+        $numberOfPeople = $_POST["numberOfPeople"];
+
+        // Assume you have stored User_ID and Service_ID in sessions after user login and service selection
+        // Replace 'logged_in_user_id' and 'selected_service_id' with your actual session variable names
+        $userID = isset($_SESSION['logged_in_user_id']) ? $_SESSION['logged_in_user_id'] : null;
+        $serviceID = isset($_SESSION['selected_service_id']) ? $_SESSION['selected_service_id'] : null;
+
+        // Fetch the price from the service_tbl based on the selected service
+        $priceQuery = "SELECT Price FROM service_tbl WHERE Service_ID = '$serviceID'";
+        $priceResult = $conn->query($priceQuery);
+
+        if ($priceResult->num_rows > 0) {
+            $row = $priceResult->fetch_assoc();
+            $servicePrice = $row['Price'];
+
+            // Calculate Booking Amount and Total Amount
+            $bookingAmount = $servicePrice;
+            $totalAmount = $bookingAmount * $numberOfPeople;
+
+            // Insert data into the database
+            $insertQuery = "INSERT INTO booking_tbl (User_ID, Booking_Date, No_of_attendees, Booking_Amount, Total_Amount, Service_ID, name) VALUES ('$userID', '$bookingDate', '$numberOfPeople', '$bookingAmount', '$totalAmount', '$serviceID', '$fullName')";
+            
+            if ($conn->query($insertQuery) === TRUE) {
+                echo "Booking successfully saved!";
+            } else {
+                echo "Error: " . $insertQuery . "<br>" . $conn->error;
+            }
+        } else {
+            echo "Error: Service not found!";
+        }
+    }
+?>
+
+<!-- Rest of your HTML code remains unchanged -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="booking.css">
+    <title>Book Now - AhmdXploreHub</title>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Ahmedabad City" width="100" height="100">
+        </div>
+        <div class="name">
+            <h1>AhmdXploreHub</h1>
+        </div>
+    </header>
+
+    <main>
+        
+        <form id="bookingForm" method="post" action="">
+            <label for="fullName">Full Name:</label>
+            <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+
+            <label for="bookingDate">Booking Date:</label>
+            <input type="date" id="bookingDate" name="bookingDate" required>
+
+            <label for="numberOfPeople">Number of People:</label>
+            <input type="number" id="numberOfPeople" name="numberOfPeople" min="1" required>
+
+            <button type="submit">Pay Now</button>
+        </form>
+
+    </main>
+
+    <footer>
+        &copy; 2023 AhmdXploreHub. All rights reserved.
+    </footer>
+</body>
+</html>

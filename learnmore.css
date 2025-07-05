@@ -1,0 +1,249 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.logo {
+    margin-right: auto;
+}
+.name {
+    font-family: cursive;
+    font-weight: bold;
+    text-indent: -100%;
+    color: #f4e3ce;
+}
+header {
+    background-color:#9673ce;
+    color: #f4e3ce;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: large;
+}
+
+.profile-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #f4e3ce;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-circle p {
+    margin: 0;
+    font-size: 24px;
+    color: purple;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    white-space: nowrap;
+}
+
+nav ul li {
+    margin-right: 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #f4e3ce;
+}
+
+.categories-dropdown, .user-auth{
+    position: relative;
+}
+
+.button {
+    border-radius: 20px;
+    background-color: #f4e3ce;
+    font-weight: bold;
+    color:purple;
+    padding-left:5px;
+    padding-right: 5px;
+}
+
+.dropdown-content, .auth-dropdown {
+    display: none;
+    position: absolute;
+    background-color: purple;
+    padding: 10px;
+    z-index: 1;
+    width: 130px;
+}
+
+.dropdown-conten, .auth-dropdow {
+    display: none;
+    position: absolute;
+    background-color: purple;
+    padding: 10px;
+    z-index: 1;
+    width: 130px;
+    margin-inline: -75px;
+}
+
+.categories-dropdown:hover .dropdown-content, .user-auth:hover .auth-dropdown {
+    display: block;
+}
+
+.hotels-dropdown:hover .dropdown-content, .user-auth:hover .auth-dropdown {
+    display: block;
+}
+
+.profile-dropdown:hover .dropdown-conten, .user-auth:hover .auth-dropdow {
+    display: block;
+}
+
+.image {
+      position: relative;
+      width: 100%;
+      /*max-width: 600px; /* Adjust the max-width as needed */
+      margin: 0 auto;
+      }
+
+    .full-image {
+      width: 50%;
+      display: block;
+    }
+
+    .side-images {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 49.5%; /* Adjust the width of side images as needed */
+    }
+
+    .side-images img {
+      width: 100%;
+      height: 50%; /* Adjust the height of side images as needed */
+      object-fit: cover;
+    }
+
+.event-detail-container {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.event-header img {
+    max-width: 32%;
+    height: 360px;
+    margin-bottom: -7px;
+    margin-left: 9px;
+    margin-right: 5px;
+}
+
+.event-description,
+.event-details,
+.event-reviews {
+    margin-bottom: 30px;
+    margin-left: 15px;
+    font-size: 18px;
+}
+
+h2 {
+    color: purple;
+    font-size:xx-large;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+.review {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.more-events {
+    margin-top: 20px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.event-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.event {
+    width: 320px;
+    margin: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.event img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.event button {
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.event button:hover{
+    background-color: #555;
+}
+
+.wishlist-booking {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 15px;
+    margin-right: 890px;
+}
+
+button {
+    padding: 10px;
+    border: solid;
+    cursor: pointer;
+    font-size: large;
+}
+
+.wishlist-btn {
+    background-color: #9673ce;
+    color: black;
+    font-weight: bold;
+    width: 120px; /* Same width as the "Book Now" button */
+    height: 40px; /* Same height as the "Book Now" button */
+}
+
+.booking-btn {
+    background-color: #9673ce;
+    color: black;
+    font-weight: bold;
+    width: 120px; /* Same width as the "Book Now" button */
+    height: 40px; /* Same height as the "Book Now" button */
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.attraction-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Adjust as needed */
+    align-items: flex-start; /* Adjust as needed */
+    margin-top: 20px;
+}

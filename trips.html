@@ -1,0 +1,224 @@
+<?php
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Past Trips</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.logo {
+    /* text-align: center; */
+    margin-left: 10px;
+
+}
+.name {
+    font-family: cursive;
+    font-weight: bold;
+    text-indent: -40%;
+    color: #f4e3ce;
+}
+header {
+    background-color:#9673ce;
+    color: #f4e3ce;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: large;
+}
+
+.profile-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #f4e3ce;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-circle p {
+    margin: 0;
+    font-size: 24px;
+    color: purple;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 15px;
+    margin-top: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #f4e3ce;
+}
+
+.categories-dropdown, .user-auth{
+    position: relative;
+}
+
+.button {
+    border-radius: 20px;
+    background-color: #f4e3ce;
+    font-weight: bold;
+    color:purple;
+    padding-left:5px;
+    padding-right: 5px;
+}
+
+.dropdown-content, .auth-dropdown {
+    display: none;
+    position: absolute;
+    background-color: purple;
+    padding: 10px;
+    z-index: 1;
+    width: 130px;
+}
+
+.dropdown-conten, .auth-dropdow {
+    display: none;
+    position: absolute;
+    background-color: purple;
+    padding: 10px;
+    z-index: 1;
+    width: 130px;
+    margin-inline: -75px;
+}
+
+.categories-dropdown:hover .dropdown-content, .user-auth:hover .auth-dropdown {
+    display: block;
+}
+
+.hotels-dropdown:hover .dropdown-content, .user-auth:hover .auth-dropdown {
+    display: block;
+}
+
+.profile-dropdown:hover .dropdown-conten, .user-auth:hover .auth-dropdow {
+    display: block;
+}
+
+
+h2 {
+    text-align: center;
+    color:purple;
+}
+
+.container {
+    justify-content: center;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.past-trips-container {
+    display: flex;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 40px;
+}
+
+.trip-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-sizing: border-box;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width:150%;
+}
+
+.trip-card img {
+    max-width: 100%;
+    height: 70%;
+    margin-bottom: 10px;
+}
+
+.trip-details {
+    text-align: center;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+
+        <div class="logo">
+                <a href="home.html"> <img src="logo.png" alt="Ahmedabad City" width="100" height="100"></a>
+        </div>
+        <div class="name">
+            <h1>AhmdXploreHub</h1>
+        </div>
+        
+        <nav>
+            <ul>
+                <li><a href="home1.html">Home</a></li>
+                <li><a href="things.html">Things to Do</a></li>
+                <li><a href="restros.html">Restaurants</a></li>
+                <li class="hotels-dropdown">
+                    <a href="#">Hotels</a>
+                    <div class="dropdown-content">
+                        <a href="luxury.html">Luxury Hotels</a><br>
+                        <a href="business hotel.html">Business Hotels</a><br>
+                        <a href="budget.html">Budget Hotels</a><br>
+                    </div>
+                </li>
+                <li class="categories-dropdown">
+                    <a href="#">Categories</a>
+                    <div class="dropdown-content">
+                        <a href="attraction.html">Attractions</a><br>
+                        <a href="events.html">Events</a><br>
+                        <a href="local insights.html">Local Insights</a><br>
+                        <a href="heritage.html">Heritage</a><br>
+                        <a href="Malls-Markets.html">Malls & Markets</a><br>
+                        <a href="food parks.html">Food Parks<br></a>
+                    </div>
+                </li>
+                
+                <li class="profile-dropdown">
+                    <div class="profile-circle" id="profileCircle"></div>
+                        <div class="dropdown-conten">
+                            <a href="account info.html">Account info</a><br>
+                            <a href="wishlist.html">Wishlist</a><br>
+                            <a href="urbooking.html">Bookings</a><br>
+                            <a href="trips.html">Past Trips</a><br>
+                            <a href="home.html">Log out<br></a>
+                        </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <h2>Your Past Visits</h2>
+    
+    <div class="container">
+        <div id="past-trips-container" class="past-trips-container">
+            <!-- Past trips will be added here dynamically -->
+        </div>
+    </div>
+    
+
+    <script>
+        // AJAX request to fetch past trips from PHP script
+        $.ajax({
+            url: "fetch_bookings.php",
+            type: "GET",
+            success: function(response) {
+                $("#past-trips-container").html(response);
+            },
+            error: function(xhr, status, error) {
+                console.error(error);
+            }
+        });
+    </script>
+    
+</body>
+</html>

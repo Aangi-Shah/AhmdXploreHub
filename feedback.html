@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="feedback.css">
+    <title>Feedback</title>
+    <script>
+        // Assume you have obtained the user's name during login
+        /*var userName = "Anaya"; // Replace with the actual user's name*/
+        var initial = userName ? userName.charAt(0).toUpperCase() : "U"; // Get the first letter and convert to uppercase
+
+        // Insert the initial into the profile circle
+        document.addEventListener("DOMContentLoaded", function() {
+            var profileCircle = document.getElementById('profileCircle');
+            profileCircle.innerHTML = "<p>" + initial + "</p>";
+        });</script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Ahmedabad City" width="100" height="100">
+        </div>
+        <div class="name">
+            <h1>AhmdXploreHub</h1>
+        </div>
+
+    <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="things.html">Things to Do</a></li>
+            <li><a href="restros.html">Restaurants</a></li>
+            <li class="hotels-dropdown">
+                <a href="#">Hotels</a>
+                <div class="dropdown-content">
+                    <a href="luxury.html">Luxury Hotels</a><br>
+                    <a href="business hotel.html">Business Hotels</a><br>
+                    <a href="budget.html">Budget Hotels</a><br>
+                </div>
+            </li>
+            <li class="categories-dropdown">
+                <a href="#">Categories</a>
+                <div class="dropdown-content">
+                    <a href="attraction.html">Attractions</a><br>
+                    <a href="events.html">Events</a><br>
+                    <a href="local insights.html">Local Insights</a><br>
+                    <a href="heritage.html">Heritage</a><br>
+                    <a href="Malls-Markets.html">Malls & Markets</a><br>
+                    <a href="food parks.html">Food Parks<br></a>
+                </div>
+            </li>
+            <li class="user-auth">
+                <a href="login.html" target="_blank">
+                    <div class="button">Login</div>
+                    <div id="profileCircle" class="profileCircle">
+                        <?php
+                        include 'db1.php'; // Include your database connection file
+            
+                        // Assuming you have a table named 'users' with a column 'name' where user names are stored
+                        // Replace 'users' and 'name' with your actual table and column names
+                        if (!empty($_GET['Email_ID'])) {
+                            $email = $_GET['Email_ID'];
+                        
+                            // Query to fetch user information based on email
+                            $query = "SELECT User_Name FROM user_tbl WHERE Email_ID = '$email'";
+                            $result = mysqli_query($conn, $query);
+                        
+                            if ($result) {
+                                $row = mysqli_fetch_assoc($result);
+                                $userName = $row['User_Name'];
+                                $initial = $userName ? strtoupper($userName[0]) : "U";
+                                echo "<div class='profile-circle' id='profileCircle'><p>" . $initial . "</p></div>";
+                            } else {
+                                echo "<div class='profile-circle' id='profileCircle'><p>U</p></div>"; // Default value if there's an error
+                            }
+                        }
+                                    mysqli_close($conn); // Close the database connection
+                                    ?>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    </header>
+    <h2>Feedback Form</h2>
+    <form action="#" method="post" enctype="multipart/form-data">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="feedback">Feedback:</label>
+        <textarea id="feedback" name="feedback" rows="4" required></textarea>
+
+        <label for="photo">Upload a photo:</label>
+        <input type="file" id="photo" name="photo" accept="image/*">
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

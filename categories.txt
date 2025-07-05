@@ -1,0 +1,17 @@
+Attractions: Science City, Kankaria lake, Adalaj ni vav
+Events: 6 events
+Local Insights: Auto world vintage car museum, Ahmd ni gufa, Sabarmati Riverfront
+Heritage: Sidi Saiyyed ni jali, Gandhi ashram, Hutheesingh temple
+Malls & Markets: Alpha one, Agora mall, Law gardern market, Tutorial market
+Things to do: Funblast, Bounce up, Shott
+Hotels: Luxury - Taj
+		ITC Narmada
+		Courtyard by Marriot
+       Business - Lemon Tree Premier, The atrium
+		  Radisson Blu Hotel 
+		  Cygnett Lite
+       Budget - Treebo Trend Ambassador
+		Hotel Accolade
+		Volga Hotel
+Restros & Cafes: Mocha, Unlocked, Under the neem tree, Agashiye, The front yard, Vintage Vibes
+Food parks: Manek chowk, Frizbee, Box park, Urban chowk

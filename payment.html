@@ -1,0 +1,223 @@
+<?php
+session_start();
+// Include database connection file
+include 'db1.php';
+
+// Fetch the booking ID for the logged-in user
+if (isset($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
+    $bookingIDQuery = "SELECT Booking_ID FROM booking_tbl WHERE User_ID = '$user_id'";
+    $bookingIDResult = $conn->query($bookingIDQuery);
+    if ($bookingIDResult && $bookingIDResult->num_rows > 0) {
+        $bookingIDRow = $bookingIDResult->fetch_assoc();
+        $booking_id = $bookingIDRow['Booking_ID'];
+    } else {
+        // Handle case when no booking ID is found
+        // For example, redirect the user to a page to make a booking
+        header("Location: make_booking.php");
+        exit();
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <style>
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.logo {
+    text-align: center;
+    margin-left:1%;
+}
+.name {
+    font-family: cursive;
+    font-weight: bold;
+    text-indent: 5%;
+    color: #f4e3ce;
+    margin-right:73%;
+}
+
+header {
+    background-color:#9673ce;
+    color: #f4e3ce;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: large;
+}
+
+header h1 {
+    margin: 0;
+}
+
+.head {
+    text-align: center;
+    color: purple;
+}
+
+main {
+    margin: 20px;
+    text-align: center;
+}
+
+form {
+    max-width: 600px;
+    margin: auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top:60px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    text-align: left;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.payment-options {
+    display: flex;
+    justify-content: space-between;
+}
+
+.payment-option {
+    flex: 1;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+}
+
+button {
+    background-color: #9673ce;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #9673ce;
+}
+
+#paymentDetails {
+    display: none;
+    margin-top: 20px;
+}
+
+#paymentDetails p {
+    margin: 10px 0;
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Ahmedabad City" width="100" height="100">
+    </div>
+    <div class="name">
+        <h1>AhmdXploreHub</h1>
+    </div>
+    </header>
+
+    <form id="paymentForm">
+        <label for="paymentMode">Select Payment Mode:</label>
+        <select id="paymentMode" onchange="showPaymentDetails()">
+            <option value="cash">Cash</option>
+            <option value="card">Credit/Debit Card</option>
+            <option value="upi">UPI</option>
+        </select>
+
+        <div id="cardDetails" style="display: none;">
+            <label for="cardNumber">Card Number:</label>
+            <input type="text" id="cardNumber" placeholder="Enter card number">
+            
+            <label for="expiryDate">Expiry Date:</label>
+            <input type="text" id="expiryDate" placeholder="MM/YYYY">
+
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" placeholder="Enter CVV">
+        </div>
+
+        <div id="upiDetails" style="display: none;">
+            <label for="upiId">UPI ID:</label>
+            <input type="text" id="upiId" placeholder="Enter UPI ID">
+
+            <label for="upipassword">Password:</label>
+            <input type="password" id="upipassword" placeholder="Enter UPI password">
+        </div>
+
+        <center><button type="button" onclick="processPayment()">Pay</button></center>
+    </form>
+    
+    <script>
+        function showPaymentDetails() {
+            var paymentMode = document.getElementById("paymentMode").value;
+            var cardDetails = document.getElementById("cardDetails");
+            var upiDetails = document.getElementById("upiDetails");
+
+            if (paymentMode === "card") {
+                cardDetails.style.display = "block";
+                upiDetails.style.display = "none";
+            } else if (paymentMode === "upi") {
+                cardDetails.style.display = "none";
+                upiDetails.style.display = "block";
+            } else {
+                cardDetails.style.display = "none";
+                upiDetails.style.display = "none";
+            }
+        }
+
+        function processPayment() {
+            // Perform payment processing logic here
+            var paymentMode = document.getElementById("paymentMode").value;
+            
+            if (paymentMode === "cash") {
+                alert("Booking done successful!");
+            } else if (paymentMode === "card") {
+                var cardNumber = document.getElementById("cardNumber").value;
+                var expiryDate = document.getElementById("expiryDate").value;
+                var cvv = document.getElementById("cvv").value;
+
+                // Perform card payment processing logic here
+
+                alert("Payment done successfully with Credit/Debit Card!");
+            } else if (paymentMode === "upi") {
+                var upiId = document.getElementById("upiId").value;
+
+                // Perform UPI payment processing logic here
+
+                alert("Payment done successfully with UPI!");
+            }
+        }
+    </script>
+
+</body>
+</html>

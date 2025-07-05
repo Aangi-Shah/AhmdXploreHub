@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <title>Login</title>
+    
+</head>
+
+<body>
+    <?php include 'db1.php'; ?>
+    <div class="login-container">
+        <form>
+            <h2>Welcome Back!</h2>
+
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[!@#$%^&*]).{8,}$" required>
+            </div>
+
+            <div class="reg">
+                <div class="register">
+                    <a href="registration.html"><u>New User</u></a>
+                </div>
+                <div class="forgot-password">
+                    
+                    <a href="forgot password.html"><u>Forgot Password?</u></a>
+                </div>
+            </div>
+            
+            <a href="home1.html"><button type="submit" onclick="validateForm()">Login</button></a>
+        </form>
+    </div>
+    <script>
+        function validateForm() {
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+
+      if (email === "" || password === "") {
+        alert("Both email and password are required");
+        return;
+      }
+      if(email !== "john12@gmail.com") {
+        alert("User does not exist");
+        return;
+      }
+      if(password !== "john@123") {
+        alert("Incorrect password");
+        return;
+      }
+      alert("Login successful");
+    }
+    </script>
+</body>
+</html>

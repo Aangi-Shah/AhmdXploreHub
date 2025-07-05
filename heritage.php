@@ -1,0 +1,1 @@
+<?php $categoryId = 7; include "attraction.php"; ?>
